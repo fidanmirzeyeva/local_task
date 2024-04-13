@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task3/4</title>
+    <style>
+        .card{
+           
+            border: 1px solid black;
+            padding: 10px;
+            width: 100px;
+            height: 72px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <input id="inp1" type="text" placeholder="Basliq"><br>
+    <br>
+    <input id="inp2" type="text" placeholder="Metn"><br>
+    <br>
+    <button id="btn">Click</button>
+
+    <div id="cardDiv"></div>
+    
+
+    <script>
+        const inp1=document.getElementById("inp1")
+        const inp2=document.getElementById("inp2")
+        const btn=document.getElementById("btn")
+        const cardDiv=document.getElementById("cardDiv")
+
+        const savedTitle=localStorage.getItem("savedTitle")
+        const savedContent=localStorage.getItem("savedContent")
+        if (savedTitle && savedContent) {
+            inp1.value=savedTitle
+            inp2.value=savedContent
+            
+        }
+
+        btn.addEventListener("click",function () {
+            
+            const title=inp1.value
+            const content=inp2.value
+
+            localStorage.setItem("savedTitle",title)
+            localStorage.setItem("savedContent",content)
+
+            const card=document.createElement("div")
+
+            card.classList.add("card")
+
+            card.innerHTML=`<h3>${title}</h3><p>${content}</p>`
+
+            cardDiv.appendChild(card)
+
+            
+        })
+    </script>
+</body>
+</html>

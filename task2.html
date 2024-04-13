@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task2</title>
+</head>
+<body>
+    <input id="myInput" type="text" placeholder="metn yaz...">
+
+    <script>
+        const myInput=document.getElementById("myInput")
+
+        const savedText=localStorage.getItem("savedText")
+        if (savedText) {
+            myInput.value=savedText
+            
+        }
+        myInput.addEventListener("keyup",function () {
+            // e.preventDefault()
+            localStorage.setItem("savedText",myInput.value)
+            
+            
+        })
+       
+    </script>
+    
+</body>
+</html>
